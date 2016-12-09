@@ -1,0 +1,159 @@
+/* ============================
+* Clearfix
+* Modified from: http://nicolasgallagher.com/micro-clearfix-hack/
+* If you already have a clearfix then you can ignore this.
+* =============================*/
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+/* line 18, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+/* line 26, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.cf:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+/* line 36, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.cf {
+  *zoom: 1;
+}
+
+/* ============================
+* NAVIGATION
+* Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/
+* =============================*/
+/* line 46, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+#main_nav {
+  clear: both;
+  display: none;
+  /*hidden to start */
+  width: 100%;
+  display: block;
+  background-color: #FF3232;
+}
+
+/* line 54, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+#main_nav ul {
+  list-style: none;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 63, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+#main_nav li a {
+  display: block;
+  color: #fff;
+  background-color: #555;
+  text-transform: uppercase;
+  padding: 0.625em;
+  /* 10px in ems is 10/16 */
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-weight: 900;
+}
+
+/* line 76, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+#main_nav li a:hover {
+  color: #555;
+  background-color: #fff;
+}
+
+/* line 81, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+#main_nav li a:active {
+  color: #555;
+  background-color: #f90;
+}
+
+/* menu button */
+/* line 88, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.menu {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* line 93, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.menu a {
+  padding: 0.5em 0.625em;
+  /*10/16 */
+  background-color: #555;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 102, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+.menu a:hover {
+  color: #555;
+  background-color: #f90;
+}
+
+/* ==========================
+*  Media Queries for Main Nav
+*  ========================== */
+/* these don't have to be separate. We did so for two reasons:
+1. Easy to copy and paste this into new design
+2. Depending on your site you may need separate break points for the nav. You may want to see what width is needed to fit your nav horizontally without breaking and use that as the breakpoint.
+It should also be noted that there is only one media query because this CSS moves the nav to the top where it can stay for all of the other sizes.
+*/
+/* 45em is about 720px depending on the base font-size */
+@media only screen and (min-width: 45em) {
+  /* hide the menu button */
+  /* line 124, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  .menu {
+    display: none;
+  }
+  /* line 127, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  #main_nav {
+    /* move main_nav to top of the screen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* other main nav styling */
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    background-color: #555;
+  }
+  /* line 139, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  #main_nav li {
+    display: inline;
+    line-height: 1em;
+  }
+  /* line 143, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  #main_nav li a {
+    float: left;
+    padding: 0.9375em;
+    /* 10/16  and  15/16 */
+    border-bottom: none;
+  }
+  /* line 149, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  #main_nav li a.top {
+    display: none;
+  }
+  /* move the rest of the page down accordingly */
+  /* line 153, C:/Users/chann/Desktop/SCHOOL/MMP240/election-project/sass/navigation.scss */
+  .container {
+    margin-top: 4em;
+    /* adjust depending on the height of your nav */
+  }
+}
+
+/*# sourceMappingURL=../css/navigation.map */

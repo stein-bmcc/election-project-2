@@ -1,0 +1,422 @@
+    /* They styles in the following are similar to the effect of a reset but have be separated out so that it is easier to add default styles.  These are suggested styles that the designer should change and add to set the typography
+
+Much of this is modified from two original sources
+HTML 5 Doctor Reset: http://html5doctor.com/html-5-reset-stylesheet/
+This is in the public domain. It has been modified to remove things redundant with Normalize and separate out styles that may need to be styled separately.
+
+Normalize.css: git.io/normalize
+The version modified is: normalize.css v3.0.1 | MIT License
+A few pieces of normalize.css that more directly affected typographic choices (such as font-family) were moved here so normalize.css could be more or less left alone.
+*/
+    /* RESPONSIVE PREPARATION
+   ====================================================================
+   Use these "as is"
+*/
+    /*The following 7 lines are from Paul Irish and apply a border-box model.
+See this page for more info: http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    /* apply a natural box layout model to all elements, but allowing components to change */
+
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+    img,
+    video {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+    }
+    /* Embedded Video Styles
+
+    These can be used to help add embedded video content, like YouTube videos, to your page. These styles require you set up your HTML in a specific way. See this CodePen for an example of it in use: http://codepen.io/profstein/pen/mArLRj
+*/
+
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+
+    .videoWrapper.ratio-16-9 {
+        padding-bottom: 56.25%;
+        /* 16:9 aspect ratio video */
+    }
+
+    .videoWrapper.ratio-4-3 {
+        padding-bottom: 75%;
+        /* 4:3 aspect ratio video */
+    }
+
+    .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /* ==========================================================================
+   Base Typographic Styles
+   ==========================================================================
+
+    The following typographic styles are meant to be changed. They are set so that you know what to style, but don't tell you how to style them. For example all of the headings are set to the same font-size and line-height. That should be changed.
+
+*/
+    /* Default Typography
+   ====================================================================
+   !! CHANGE FROM HERE DOWN to suit the needs of your site
+   You can use a resource like http://type-scale.com/ to help you choose font-size
+*/
+    /*
+Set a default font-family, font-size and line-height in the html
+This will set the default for the entire site.
+*/
+
+    html {
+        font-size: 100%;
+        font-family: 'Lato', sans-serif;
+        font-size: 1em;
+        line-height: 1.4;
+        /* usually something between 1.3 and 1.6 is most readable without feeling too far apart */
+    }
+    /*Usually at least a bottom margin is given to separate paragraphs. font-size and font-family are inherited from body*/
+
+    p {
+        margin: 0 0 0 0;
+        color: dimgray;
+    }
+    /*Set a default font-family for the headings*/
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: font-family: 'Lato', sans-serif;
+        text-align: center;
+    }
+    /*
+Set the font-size of each heading individually
+When you set the font-size also set the line-height.
+You may also want to set the top and bottom margins and padding
+*/
+
+    h1 {
+        font-size: 2em;
+        line-height: 2;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        line-height: 1.2;
+        margin: 0;
+        padding: 1em;
+        text-decoration: underline;
+    }
+
+    h4 {
+        font-size: 1em;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
+        text-decoration: underline;
+    }
+
+    h5 {
+        font-size: 0.8em;
+        line-height: 1.2;
+        margin: 0;
+        padding: 0;
+    }
+    /*Other relatively common elements to style. Uncomment and change to your liking*/
+    /*These are used to display text like pre-formatted text and code samples*/
+
+    pre,
+    code,
+    kbd,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+        line-height: 1.15;
+        margin: 0;
+        padding: 0;
+    }
+    /* Forms
+   ========================================================================== */
+    /**
+ * Set the font styles related to forms
+ */
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: font-family: 'Lato', sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+    }
+    /* ============================
+* Clearfix
+* Modified from: http://nicolasgallagher.com/micro-clearfix-hack/
+* If you already have a clearfix then you can ignore this.
+* =============================*/
+    /**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+    .cf:before,
+    .cf:after {
+        content: " ";
+        /* 1 */
+        display: table;
+        /* 2 */
+    }
+
+    .cf:after {
+        clear: both;
+    }
+    /**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+    .cf {
+        *zoom: 1;
+    }
+    /* ============================
+* NAVIGATION
+* Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/
+* =============================*/
+
+    #main_nav {
+        clear: both;
+        display: none;
+        width: 100%;
+        display: block;
+        background-color: #FF3232;
+    }
+
+    #main_nav ul {
+        list-style: none;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        background-color: width: 100%;
+        display: block;
+        background-color: #FF3232;
+    }
+
+    #main_nav li a {
+        display: block;
+        color: #fff;
+        background-color: #FF3232;
+        text-transform: uppercase;
+        padding: 0.625em;
+        /* 10px in ems is 10/16 */
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        font-weight: 900;
+    }
+
+    #main_nav li a:hover {
+        color: #FF3232;
+        background-color: #fff;
+    }
+
+    #main_nav li a:active {
+        color: #3232FF;
+        background-color: #FF3232;
+    }
+    /* menu button */
+
+    .menu {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .menu a {
+        padding: 0.5em 0.625em;
+        /*10/16 */
+        background-color: #3232FF;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .menu a:hover {
+        color: #fff;
+        background-color: #3232FF;
+    }
+    /* ==========================
+*  Media Queries for Main Nav
+*  ========================== */
+    /* these don't have to be separate. We did so for two reasons:
+1. Easy to copy and paste this into new design
+2. Depending on your site you may need separate break points for the nav. You may want to see what width is needed to fit your nav horizontally without breaking and use that as the breakpoint.
+It should also be noted that there is only one media query because this CSS moves the nav to the top where it can stay for all of the other sizes.
+*/
+    /* 45em is about 720px depending on the base font-size */
+
+    @media only screen and (min-width: 45em) {
+        /* hide the menu button */
+        .menu {
+            display: none;
+        }
+        #main_nav {
+            /* move main_nav to top of the screen */
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* other main nav styling */
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            background-color: #FF3232;
+        }
+        #main_nav li {
+            display: inline;
+            line-height: 1em;
+        }
+        #main_nav li a {
+            float: left;
+            padding: 0.9375em;
+            /* 10/16  and  15/16 */
+            border-bottom: none;
+        }
+        #main_nav li a.top {
+            display: none;
+        }
+        /* move the rest of the page down accordingly */
+        .container {
+            margin-top: 4em;
+            /* adjust depending on the height of your nav */
+        }
+    }
+    /* ==========================================================================
+   Add your custom styles here
+   ========================================================================== */
+
+    .main-content {
+        width: 100%;
+        padding: 0px;
+    }
+
+    body {
+        font-size: 1em;
+        font-family: 'Lato', sans-serif;
+        margin: 2%
+    }
+
+    header {
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    p {
+        padding: 1em;
+        pa
+    }
+
+    li {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    p {
+        align-content: center;
+    }
+
+    #boxwhite {
+        border: 2px solid red;
+        border-radius: 30px;
+    }
+
+    .candidate-list {
+        list-style: none;
+        margin: 0;
+        padding-bottom: 1em;
+        width: 84%;
+        align-content: center;
+    }
+
+    .candidate-img {
+        border-radius: 50%;
+    }
+
+    .myButton {
+        text-decoration: none;
+        margin: 0;
+        text-align: center;
+        background-color: #fe1a00;
+        border-radius: 25px;
+        display: inline-block;
+        color: #ffffff;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        height: 70px;
+        width: 100%;
+        text-align: center;
+        line-height: 65px;
+        align-content: center;
+        border-style: solid;
+        border-color: white;
+    }
+
+    .myButton:hover {
+        background-color: #ce0100;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+    a:link {
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        /* This is the dangerous one in WebKit, as it breaks things wherever */
+        word-break: break-all;
+        /* Instead use this non-standard one: */
+        word-break: break-word;
+        /* Adds a hyphen where the word breaks, if supported (No Blink) */
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .googleCalendar {
+        position: relative;
+        height: 0;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+
+    .googleCalendar iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }

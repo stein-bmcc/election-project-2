@@ -4,35 +4,123 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Change to Your Title</title>
+    <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link rel="stylesheet" href="css/normalized-reset.css">
+    <!--<link rel="stylesheet" href="css/normalized-reset.css">-->
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="js/vendor/modernizr2.8.3.min.js"></script>
 </head>
 
 <body>
     <!-- Add your site or application content here -->
+    <div class="container">
+        <header class="page-header cf">
+            <div class="logo">
+                <img src="logo.png" alt="placeholder logo">
+            </div>
+        </header>
+
+        <!--    NAVIGATION-->
+        <a id="top"></a>
+
+        <div class="menu">
+            <a href="#" id="menu_button">Menu</a>
+        </div>
+
+        <nav id="main_nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="election-day.html">Vote</a></li>
+                <li><a href="candidates.html">Candidates</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>
+        <!--end main_nav -->
+        <h1>Homepage</h1>
+
+        <!-- CONTENT TO MARK(MAKE LIKE EXAMPLE PAGE) -->
+        <div id=boxwhite>
+            <h2>Dates</h2>
+            <p><strong>General Election: </strong>November 8, 2016</p>
+
+            <p><strong>Registration Deadline: </strong>Friday, October 14, 2016</p>
+
+            <p><strong>Third Presidential Debate:</strong>Wednesday, October 19, 2016 It will be on all of the major networks (ABC, NBC, Fox, CBS, MSNBC, Fox News, Fox Business, CNN, Univision, Telemundo, and C-SPAN), online livestreamed on Twitter http://debates.twitter.com, Facebook and YouTube and on radio WNYC 93.9 FM or<a href="http://www.wnyc.org/"> http://www.wnyc.org/</a></p>
+        </div>
+        <row>
+
+            <a href="register.html" class="myButton">How to Register</a>
+
+
+            <a href="election-day.html" class="myButton">Voting Information</a>
+
+            <a href="candidates.html" class="myButton">Information about Candidates</a>
+
+            <a href="events.html" class="myButton">Upcoming Event</a>
+
+            <a href="resources.html" class="myButton">Election Resources</a>
+        </row>
+        <br>
+
+        <!--    Example to go back to the top of the page-->
+        <a href="#top">Top</a>
+        <footer>
+            <p class="copywrite">&copy; Get Out the Vote NYC 2016</p>
+            <p class="about"><a href="about.html">About this Site</a>
+            </p>
+        </footer>
 
 
 
 
+        <!-- Make sure your content is done before this -->
 
-    <!-- Make sure your content is done before this -->
-
-    <!-- Load CDN version of jQuery. For other versions visit this page: https://code.jquery.com/jquery/ -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <!-- Load CDN version of jQuery. For other versions visit this page: https://code.jquery.com/jquery/ -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <!--    Load Local version if CDN is not working-->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+        <script>
+            window.jQuery || document.write('<script src="js/vendor/jquery-3.1.1.min.js"><\/script>')
+        </script>
 
-    <!--   Your jQuery and other JavaScript can go here in this script element. -->
-    <script>
-        jQuery(document).ready(function ($) {
-            // Your jQuery code here, using $ to refer to jQuery.
-        });
-    </script>
+        <!--   Your jQuery and other JavaScript can go here in this script element. -->
+        <script>
+            jQuery(document).ready(function ($) {
+                // Your jQuery code here, using $ to refer to jQuery.
+            });
+            $('#menu_button').click(function (evt) {
+                console.log('evt', evt);
+                evt.preventDefault();
+                $('#main_nav').slideToggle();
+            }); //end menu_button
+
+
+            //this code taken from Sebastien on Stackoverflow: http://stackoverflow.com/questions/6461300/triggering-jquery-with-css-media-queries
+            //it's been rearranged slightly
+            //leave the lines below and then write your code in the doneResizing function below
+            doneResizing();
+            var id;
+            $(window).resize(function () {
+                clearTimeout(id);
+                id = setTimeout(doneResizing, 0);
+            });
+
+            function doneResizing() {
+                //this code requires that you have Modernizr included BEFORE this file. Here is modernizr: http://modernizr.com/
+                //the trick with min-width media queries is that you need to start from your largest and go down. In the else at the end you can write  js for any size below your smallest min-width.
+
+                if (Modernizr.mq('screen and (min-width:45em)')) {
+                    $('#main_nav').show(); //make sure it is showing at larger sizes
+                } else {
+                    //Your code goes here for screens below 45em in this example.
+                    $('#main_nav').hide(); //make sure hiding at smaller sizes
+                }
+            } //end doneResizing
+        </script>
 </body>
 
 </html>
